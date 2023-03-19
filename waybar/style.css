@@ -1,0 +1,121 @@
+@import "macchiato.css";
+
+* {
+  font-family: FiraCode NF;
+  font-size: 14px;
+}
+
+window#waybar {
+  background: transparent;
+}
+
+#workspaces {
+  margin-top: 6px;
+  border-radius: 8px;
+  background-color: @surface0;
+  padding: 2px;
+}
+
+#workspaces button {
+  color: @pink;
+  box-shadow: inset 0 -3px transparent;
+  transition: all 0.5s cubic-bezier(.55, -0.68, .48, 1.68);
+}
+
+#workspaces button.active {
+  color: @flamingo;
+  background-color: @surface2;
+}
+
+#workspaces button:hover {
+  color: @rosewater;
+  border-radius: 1rem;
+}
+
+#cpu {
+  color: @green;
+  margin-left: 6px;
+  border-radius: 8px 0 0 8px;
+}
+
+#memory {
+  color: @blue;
+  border-radius: 0 8px 8px 0;
+}
+
+#cpu,
+#memory {
+  margin-top: 6px;
+  background-color: @surface0;
+  padding: 0 10px;
+}
+
+#tray,
+#network,
+#backlight,
+#clock,
+#battery,
+#pulseaudio,
+#custom-lock,
+#custom-power {
+  margin-top: 6px;
+  background-color: @surface0;
+  padding: 0 10px;
+}
+
+/* special borders */
+#network {
+  border-radius: 8px 0 0 8px;
+}
+
+#clock {
+  margin-right: 6px;
+  border-radius: 0 8px 8px 0;
+}
+
+#clock {
+  color: @lavender;
+}
+
+#battery {
+  color: @green;
+}
+
+#battery.charging {
+  color: @green;
+}
+
+#battery.warning:not(.charging) {
+  color: @red;
+}
+
+#network {
+    color: @flamingo;
+}
+
+#backlight {
+  color: @yellow;
+}
+
+#pulseaudio {
+  color: @pink;
+}
+
+#pulseaudio.muted {
+    color: @red;
+}
+
+#custom-power {
+    border-radius: 1rem;
+    color: @red;
+    margin-bottom: 1rem;
+}
+
+tooltip {
+    background: @base;
+    border: 1px solid @pink;
+}
+
+tooltip label {
+    color: @text;
+}

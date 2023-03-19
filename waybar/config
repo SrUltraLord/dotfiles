@@ -1,0 +1,103 @@
+{
+  "position": "top",
+  "modules-left": [
+    "cpu",
+    "memory"
+  ],
+  "modules-center": [
+    "wlr/workspaces"
+  ],
+  "modules-right": [
+    "network",
+    "pulseaudio",
+    "tray",
+    "clock"
+  ],
+  "cpu": {
+    "format": "󰻠{usage}%",
+    "tooltip": false
+  },
+  "memory": {
+    "format": " {}%"
+  },
+  "wlr/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "format-icons": {
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "0": "0",
+      "urgent": "",
+      "active": "",
+      "default": ""
+    }
+  },
+  "clock": {
+    "format": " {:%d/%m/%Y - %T}",
+    "interval": 1
+  },
+  "network": {
+    "format-wifi": " {essid} ({signalStrength}%)",
+    "format-ethernet": " {ipaddr}",
+    "format-linked": " (No IP) ",
+    "format-disconnected": "睊",
+    "interval": 1
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": "ﱝ {icon} {format_source}",
+    "format-muted": "ﱝ",
+    "format-source": "{volume}% ",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphones": "",
+      "handsfree": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "奄",
+        "奔",
+        "墳"
+      ]
+    },
+    "on-click": "pavucontrol"
+  },
+  "tray": {
+    "spacing": 10
+  },
+  "custom/application-name": {
+    "return-type": "json",
+    "exec": "xtitle -sf '{name}'",
+    "interval": 1,
+    "escape": true
+  },
+  "custom/waybar-media": {
+    "return-type": "json",
+    "exec": "waybar-media.py status",
+    "on-click": "waybar-media.py playpause",
+    "on-scroll-up": "waybar-media.py previous",
+    "on-scroll-down": "waybar-media.py next",
+    "escape": true
+  },
+  "custom/media": {
+    "format-icons": {
+      "spotify": "",
+      "default": "🎜"
+    },
+    "format": "{icon} {}",
+    "return-type": "json",
+    "max-length": 40,
+    "escape": true,
+    "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
+  }
+}
