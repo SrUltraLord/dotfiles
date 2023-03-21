@@ -16,6 +16,7 @@ return packer.startup(function(use)
   use "wbthomason/packer.nvim"
 
   -- Theme
+  use { "folke/tokyonight.nvim" }
   use { "catppuccin/nvim", as = "catppuccin" }
   use {
     "glepnir/dashboard-nvim",
