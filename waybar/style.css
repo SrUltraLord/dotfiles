@@ -1,52 +1,45 @@
 @import "macchiato.css";
 
 * {
-  font-family: FiraCode NF;
-  font-size: 14px;
+  font-family: Iosevka Nerd Font, Material Symbols Rounded;
+  font-size: 15px;
+  /* font-weight: bold; */
 }
 
 window#waybar {
-  background: transparent;
+  background-color: @surface0;
+  margin: 6px 6px 0 6px;
 }
 
 #workspaces {
-  margin-top: 6px;
-  border-radius: 8px;
-  background-color: @surface0;
-  padding: 2px;
+  margin-right: 8px;
 }
 
 #workspaces button {
   color: @pink;
   box-shadow: inset 0 -3px transparent;
-  transition: all 0.5s cubic-bezier(.55, -0.68, .48, 1.68);
+  transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
 }
 
 #workspaces button.active {
-  color: @flamingo;
-  background-color: @surface2;
+  color: @surface0;
+  background-color: @mauve;
 }
 
 #workspaces button:hover {
   color: @rosewater;
-  border-radius: 1rem;
 }
 
 #cpu {
   color: @green;
-  margin-left: 6px;
-  border-radius: 8px 0 0 8px;
 }
 
 #memory {
   color: @blue;
-  border-radius: 0 8px 8px 0;
 }
 
 #cpu,
 #memory {
-  margin-top: 6px;
-  background-color: @surface0;
   padding: 0 10px;
 }
 
@@ -58,8 +51,6 @@ window#waybar {
 #pulseaudio,
 #custom-lock,
 #custom-power {
-  margin-top: 6px;
-  background-color: @surface0;
   padding: 0 10px;
 }
 
@@ -69,28 +60,11 @@ window#waybar {
 }
 
 #clock {
-  margin-right: 6px;
-  border-radius: 0 8px 8px 0;
-}
-
-#clock {
   color: @lavender;
 }
 
-#battery {
-  color: @green;
-}
-
-#battery.charging {
-  color: @green;
-}
-
-#battery.warning:not(.charging) {
-  color: @red;
-}
-
 #network {
-    color: @flamingo;
+  color: @flamingo;
 }
 
 #backlight {
@@ -102,20 +76,20 @@ window#waybar {
 }
 
 #pulseaudio.muted {
-    color: @red;
+  color: @red;
 }
 
 #custom-power {
-    border-radius: 1rem;
-    color: @red;
-    margin-bottom: 1rem;
+  border-radius: 1rem;
+  color: @red;
+  margin-bottom: 1rem;
 }
 
 tooltip {
-    background: @base;
-    border: 1px solid @pink;
+  background: @base;
+  border: 1px solid @pink;
 }
 
 tooltip label {
-    color: @text;
+  color: @text;
 }

@@ -1,103 +1,66 @@
 {
+  "height": 10,
   "position": "top",
   "modules-left": [
+    "custom_endeavour",
+    "wlr/workspaces",
     "cpu",
     "memory"
   ],
   "modules-center": [
-    "wlr/workspaces"
+    "clock"
   ],
   "modules-right": [
     "network",
     "pulseaudio",
-    "tray",
-    "clock"
+    "tray"
   ],
+
+  "custom_endeavour": {
+    "format": "<span foreground='#cb92f2' size='large'></span>"
+  },
   "cpu": {
-    "format": "󰻠{usage}%",
+    "format": "<span size='large'></span>  {usage}%",
     "tooltip": false
   },
   "memory": {
-    "format": " {}%"
+    "format": "<span size='large'></span>  {}%"
   },
   "wlr/workspaces": {
     "format": "{icon}",
     "on-click": "activate",
     "format-icons": {
-      "1": "1",
-      "2": "2",
-      "3": "3",
-      "4": "4",
-      "5": "5",
-      "6": "6",
-      "7": "7",
-      "8": "8",
-      "9": "9",
-      "0": "0",
-      "urgent": "",
-      "active": "",
-      "default": ""
+      "format": "{name}",
+      "active-only": "true",
     }
   },
   "clock": {
-    "format": " {:%d/%m/%Y - %T}",
+    "format": "<span size='large'></span>  {:%a %d %b   <span size='large'></span>  %H:%M}",
     "interval": 1
   },
   "network": {
     "format-wifi": " {essid} ({signalStrength}%)",
-    "format-ethernet": " {ipaddr}",
+    "format-ethernet": "<span size='large'></span>  {ipaddr}",
     "format-linked": " (No IP) ",
     "format-disconnected": "睊",
-    "interval": 1
+    "interval": 1,
+    "tooltip": true,
+    "tooltip-format": "{ifname}"
   },
   "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-bluetooth": "{volume}% {icon} {format_source}",
-    "format-bluetooth-muted": "ﱝ {icon} {format_source}",
-    "format-muted": "ﱝ",
-    "format-source": "{volume}% ",
-    "format-source-muted": "",
+    "format": "<span size='large'>{icon}</span>  {volume}%",
+    "format-bluetooth": "{volume}% <span size='large'>{icon}</span>  {format_source}",
+    "format-bluetooth-muted": "<span size='large'>ﱝ{icon}</span>  {format_source}",
+    "format-muted": "<span size='large'>ﱝ</span>",
+    "format-source": "{volume}% <span size='medium'></span>",
+    "format-source-muted": "<span size='medium'></span>",
     "format-icons": {
       "headphones": "",
-      "handsfree": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": [
-        "奄",
-        "奔",
-        "墳"
-      ]
+      "default": ["墳"]
     },
     "on-click": "pavucontrol"
   },
   "tray": {
     "spacing": 10
-  },
-  "custom/application-name": {
-    "return-type": "json",
-    "exec": "xtitle -sf '{name}'",
-    "interval": 1,
-    "escape": true
-  },
-  "custom/waybar-media": {
-    "return-type": "json",
-    "exec": "waybar-media.py status",
-    "on-click": "waybar-media.py playpause",
-    "on-scroll-up": "waybar-media.py previous",
-    "on-scroll-down": "waybar-media.py next",
-    "escape": true
-  },
-  "custom/media": {
-    "format-icons": {
-      "spotify": "",
-      "default": "🎜"
-    },
-    "format": "{icon} {}",
-    "return-type": "json",
-    "max-length": 40,
-    "escape": true,
-    "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
   }
 }
