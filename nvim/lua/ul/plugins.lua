@@ -15,6 +15,8 @@ vim.cmd([[
 return packer.startup(function(use)
   use "wbthomason/packer.nvim"
 
+  use "github/copilot.vim"
+
   -- Theme
   use { "folke/tokyonight.nvim" }
   use { "catppuccin/nvim", as = "catppuccin" }
