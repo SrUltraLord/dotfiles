@@ -9,6 +9,7 @@
 window#waybar {
   background-color: @surface0;
   margin: 6px 6px 0 6px;
+  border-radius: 8px;
 }
 
 #workspaces {
@@ -34,6 +35,10 @@ window#waybar {
   color: @green;
 }
 
+#temperature {
+  color: @lavender;
+}
+
 #memory {
   color: @blue;
 }
@@ -52,6 +57,11 @@ window#waybar {
 #custom-lock,
 #custom-power {
   padding: 0 10px;
+}
+
+#custom-logo {
+  padding: 0 14px 0 10px;
+  background-color: @lavender;
 }
 
 /* special borders */

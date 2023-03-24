@@ -1,23 +1,26 @@
 {
-  "height": 10,
   "position": "top",
+  "margin-top": 6,
+  "margin-right": 6,
+  "margin-bottom": 0,
+  "margin-left": 6,
   "modules-left": [
-    "custom_endeavour",
     "wlr/workspaces",
     "cpu",
+    "temperature",
     "memory"
   ],
   "modules-center": [
-    "clock"
+    "custom/focused-app"
   ],
   "modules-right": [
     "network",
     "pulseaudio",
-    "tray"
+    "tray",
+    "clock"
   ],
-
-  "custom_endeavour": {
-    "format": "<span foreground='#cb92f2' size='large'></span>"
+  "custom/logo": {
+    "format": ""
   },
   "cpu": {
     "format": "<span size='large'></span>  {usage}%",
@@ -26,16 +29,25 @@
   "memory": {
     "format": "<span size='large'></span>  {}%"
   },
+  "temperature": {
+    "critical-threshold": 80,
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": [
+      "",
+      "",
+      ""
+    ]
+  },
   "wlr/workspaces": {
     "format": "{icon}",
     "on-click": "activate",
     "format-icons": {
       "format": "{name}",
-      "active-only": "true",
+      "active-only": "true"
     }
   },
   "clock": {
-    "format": "<span size='large'></span>  {:%a %d %b   <span size='large'></span>  %H:%M}",
+    "format": "<span size='large'></span>  {:%a %d %b <span size='large'></span>  %H:%M}",
     "interval": 1
   },
   "network": {
@@ -56,11 +68,18 @@
     "format-source-muted": "<span size='medium'></span>",
     "format-icons": {
       "headphones": "",
-      "default": ["墳"]
+      "default": [
+        "墳"
+      ]
     },
     "on-click": "pavucontrol"
   },
   "tray": {
     "spacing": 10
+  },
+  "custom/focused-app": {
+    "format": "{}",
+    "interval": 1,
+    "exec": "hyprctl activewindow -j | jq -r '.. | .class? | select(.)' | tail -n1"
   }
 }
