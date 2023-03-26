@@ -1,18 +1,11 @@
 brave-bin
-catppuccin-gtk-theme-frappe
-catppuccin-gtk-theme-latte
-catppuccin-gtk-theme-macchiato
 catppuccin-gtk-theme-mocha
 cava
 ddccontrol
 drawio-desktop
 glib
-gummy
-heroic-games-launcher-bin
 hyprland-bin
-lolcat-rs
 papirus-folders-catppuccin-git
-parsec-bin
 pnpm
 postman-bin
 spotify
@@ -20,7 +13,6 @@ spotify-tui
 tela-icon-theme
 vimix-cursors
 visual-studio-code-bin
-vscodium-bin
 vtop
 waybar-hyprland-git
 wlogout
