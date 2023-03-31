@@ -8,7 +8,7 @@
     "wlr/workspaces",
     "cpu",
     "temperature",
-    "memory"
+    "memory",
   ],
   "modules-center": [
     "custom/focused-app"
@@ -51,8 +51,9 @@
     "interval": 1
   },
   "network": {
+    "width": 120,
     "format-wifi": " {essid} ({signalStrength}%)",
-    "format-ethernet": "<span size='large'></span>  {ipaddr}",
+    "format-ethernet": "<span size='large'></span>   {bandwidthDownBits}  {bandwidthUpBits}",
     "format-linked": " (No IP) ",
     "format-disconnected": "睊",
     "interval": 1,
