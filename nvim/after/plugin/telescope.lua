@@ -5,7 +5,7 @@ m.map("n", "<c-f>", "<CMD>Telescope live_grep<CR>")
 
 -- Plugins
 m.map("n", "<c-y>", "<CMD>Telescope yank_history<CR>")
-m.map("n", "<leader>todo", "<CMD>TodoTelescope<CR>")
+m.map("n", "<leader>td", "<CMD>TodoTelescope<CR>")
 
 require('telescope').setup {
   defaults = {
