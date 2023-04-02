@@ -1,9 +1,11 @@
 -- This plugin handles session persistence
 return {
   "folke/persistence.nvim",
-  event = "VimEnter",
-  module = "persistence",
+  lazy = false,
   config = function()
-    require("persistence").setup()
+    local persistence = require("persistence")
+
+    persistence.setup()
+    persistence.load()
   end, 
 }

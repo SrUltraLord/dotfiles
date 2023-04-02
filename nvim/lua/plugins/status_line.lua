@@ -1,6 +1,9 @@
 return {
   "b0o/incline.nvim",
   config = function()
-    require("incline").enable()
+    local incline = require("incline")
+
+    incline.setup()
+    incline.enable()
   end
 }

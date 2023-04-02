@@ -5,7 +5,7 @@ return {
     { "nvim-lua/plenary.nvim" }
   },
   config = function()
-    local telescope = require('telescope')
+    local telescope = require("telescope")
 
     telescope.setup({
       defaults = {
@@ -16,7 +16,7 @@ return {
     telescope.load_extension("yank_history")
   end,
   keys = {
-    { "<c-p>", "<cmd>Telescope find_files hidden=false<cr>" },
+    { "<c-p>", "<cmd>Telescope find_files hidden=true<cr>" },
     { "<c-f>", "<cmd>Telescope live_grep<cr>" },
 
     -- Plugins

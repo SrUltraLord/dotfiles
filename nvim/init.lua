@@ -1,3 +1,2 @@
-
-require "config"
--- require "david.globals"
+require("config")
+require("david") 

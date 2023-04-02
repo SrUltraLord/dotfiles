@@ -4,8 +4,9 @@ local opt = vim.opt
 
 g.mapleader = " "
 
--- Fonts
-opt.guifont = { "CaskaydiaCove NF:h12" }
+-- Listchars
+vim.opt.list = true
+vim.opt.listchars:append "space:⋅"
 
 -- Decrease update time
 o.timeoutlen = 500
@@ -59,6 +60,4 @@ vim.wo.signcolumn = 'yes'
 opt.signcolumn = 'yes'
 
 -- FILE FORMATTING
-g.neoformat_try_node_exe = 1
--- vim.cmd [[autocmd BufWritePre * Neoformat]]
--- vim.cmd [[autocmd BufWritePre *.lua lua vim.lsp.buf.format()]]
+vim.cmd [[autocmd BufWritePre *.lua lua vim.lsp.buf.format()]]
