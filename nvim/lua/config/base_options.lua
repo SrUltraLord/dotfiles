@@ -16,8 +16,8 @@ o.scrolloff = 8
 
 -- Better editor UI
 o.number = true
-o.numberwidth = 2
 o.relativenumber = true
+o.numberwidth = 2
 o.signcolumn = "yes"
 o.cursorline = true
 
@@ -32,7 +32,6 @@ o.tabstop = 2
 o.shiftwidth = 2
 o.softtabstop = -1 -- If negative, shiftwidth value is used
 opt.list = true
-opt.listchars:append "space:⋅"
 
 -- Makes neovim and host OS clipboard play nicely with each other
 o.clipboard = "unnamedplus"
@@ -46,9 +45,6 @@ o.backup = false
 o.writebackup = false
 o.undofile = true
 o.swapfile = false
--- o.backupdir = '/tmp/'
--- o.directory = '/tmp/'
--- o.undodir = '/tmp/'
 
 -- Remember 50 items in commandline history
 o.history = 50
@@ -62,8 +58,7 @@ o.incsearch = false
 vim.wo.signcolumn = 'yes'
 opt.signcolumn = 'yes'
 
-
 -- FILE FORMATTING
 g.neoformat_try_node_exe = 1
-vim.cmd [[autocmd BufWritePre * Neoformat]]
-vim.cmd [[autocmd BufWritePre *.lua lua vim.lsp.buf.format()]]
+-- vim.cmd [[autocmd BufWritePre * Neoformat]]
+-- vim.cmd [[autocmd BufWritePre *.lua lua vim.lsp.buf.format()]]

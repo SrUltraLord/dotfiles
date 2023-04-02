@@ -1,2 +1,0 @@
-require("yanky").setup({
-})
