@@ -41,10 +41,7 @@ return packer.startup(function(use)
   }
 
   -- Status line
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-  }
+  use "b0o/incline.nvim"
   use "kyazdani42/nvim-web-devicons"
 
   -- Floating terminal
@@ -56,6 +53,7 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim"
 
   -- File editing
+  use { "onsails/lspkind.nvim" }
   use { "ggandor/leap.nvim" }
   use { "mg979/vim-visual-multi" }
   use { "gbprod/yanky.nvim" }
@@ -133,7 +131,16 @@ return packer.startup(function(use)
   use "marus/cortex-debug"
 
   -- File Mgmt
-  use "nvim-tree/nvim-tree.lua"
+  use {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+    }
+  }
+
   use { "nvim-telescope/telescope.nvim",
     tag = "0.1.0",
     requires = { { "nvim-lua/plenary.nvim" } },

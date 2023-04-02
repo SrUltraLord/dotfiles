@@ -15,7 +15,7 @@ require("catppuccin").setup {
     end,
     mocha = function(mocha)
       return {
-        Comment = { fg = mocha.flamingo },
+        Comment = { fg = mocha.surface2 },
       }
     end,
   },
@@ -46,4 +46,5 @@ require("catppuccin").setup {
   },
 }
 
-vim.cmd "colorscheme tokyonight-night"
+-- vim.cmd "colorscheme catppuccin-mocha"
+vim.cmd "colorscheme tokyonight-moon"
