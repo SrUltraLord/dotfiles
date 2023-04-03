@@ -65,7 +65,7 @@ return {
         ['<C-i>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.abort(),
-        ['<Tab>'] = cmp.mapping.confirm({ select = true }),
+        ['<cr>'] = cmp.mapping.confirm({ select = true }),
       }),
       sources = {
         { name = 'tsserver' },
