@@ -53,12 +53,12 @@
   "network": {
     "width": 120,
     "format-wifi": " {essid} ({signalStrength}%)",
-    "format-ethernet": "<span size='large'></span>   {bandwidthDownBits}  {bandwidthUpBits}",
+    "format-ethernet": "<span size='large'></span>  {ipaddr}",
     "format-linked": " (No IP) ",
     "format-disconnected": "睊",
     "interval": 1,
     "tooltip": true,
-    "tooltip-format": "{ifname}"
+    "tooltip-format": " {bandwidthDownBits}  {bandwidthUpBits}"
   },
   "pulseaudio": {
     "format": "<span size='large'>{icon}</span>  {volume}%",
