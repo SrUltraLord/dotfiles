@@ -26,39 +26,38 @@ local icons = {
   TypeParameter = ""
 }
 
-return { 
+return {
   "hrsh7th/nvim-cmp",
-  lazy = false,
   config = function()
     local cmp = require("cmp")
 
     cmp.setup({
       snippet = {
         expand = function(args)
-          require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+          require('luasnip').lsp_expand(args.body)
         end,
       },
       window = {
         completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
+        documentation = {
+          border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+          cmp.config.window.bordered(),
+        },
         icons = icons
       },
       formatting = {
         format = function(entry, vim_item)
-          local lspkind_ok, lspkind = pcall(require, "lspkind")
-          if not lspkind_ok then
-            vim_item.kind = string.format('%s %s', icons[vim_item.kind], vim_item.kind) 
-            vim_item.menu = ({
-              buffer = "[Buffer]",
-              nvim_lsp = "[LSP]",
-              luasnip = "[LuaSnip]",
-              nvim_lua = "[Lua]",
-              latex_symbols = "[LaTeX]",
-            })[entry.source.name]
-            return vim_item
-          else
-            return lspkind.cmp_format()
-          end
+          vim_item.kind = string.format('%s %s', icons[vim_item.kind], vim_item.kind)
+
+          vim_item.menu = ({
+            buffer = "[Buffer]",
+            nvim_lsp = "[LSP]",
+            luasnip = "[LuaSnip]",
+            nvim_lua = "[Lua]",
+            latex_symbols = "[LaTeX]",
+          })[entry.source.name]
+
+          return vim_item
         end
       },
       mapping = cmp.mapping.preset.insert({
@@ -68,12 +67,21 @@ return {
         ['<C-e>'] = cmp.mapping.abort(),
         ['<Tab>'] = cmp.mapping.confirm({ select = true }),
       }),
-      sources = cmp.config.sources({
+      sources = {
+        { name = 'tsserver' },
         { name = 'nvim_lsp' },
-        { name = 'luasnip' }, -- For luasnip users.
-      }, {
+        { name = 'luasnip' },
         { name = 'buffer' },
-      })
+        { name = 'tailwindcss' },
+        { name = 'tailwindcss' },
+        { name = 'astro' },
+        { name = 'eslint' },
+        { name = 'html' },
+        { name = 'rust_analyzer' },
+        { name = 'json_ls' },
+        { name = 'emmet_ls' },
+        { name = 'cssls' }
+      }
     })
   end,
 }

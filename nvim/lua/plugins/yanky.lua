@@ -1,1 +1,4 @@
-return { "gbprod/yanky.nvim" }
+return { 
+  "gbprod/yanky.nvim",
+  config = {}
+}
