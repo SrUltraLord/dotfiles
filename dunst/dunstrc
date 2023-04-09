@@ -4,7 +4,7 @@ separator_color= frame
 
 monitor=1
 corner_radius=8
-offset=8x300
+offset=8x100
 
 [urgency_low]
 background = "#1E1E2E"
