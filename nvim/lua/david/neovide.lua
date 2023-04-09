@@ -2,7 +2,7 @@ if vim.g.neovide then
   vim.g.neovide_refresh_rate = 60
   vim.g.neovide_cursor_animate_in_insert_mode = true
   vim.g.neovide_cursor_vfx_mode = "torpedo"
-  vim.o.guifont = "Fira Code NF:h10"
+  vim.o.guifont = "Iosevka nerd font:h14"
 
   local change_scale_factor = function(delta)
     vim.g.neovide_scale_factor = vim.g.neovide_scale_factor * delta
