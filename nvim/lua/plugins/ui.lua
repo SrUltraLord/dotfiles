@@ -44,6 +44,18 @@ return {
   -- Better popup menus
   { 'stevearc/dressing.nvim' },
 
+  -- Notifications
+  {
+    "rcarriga/nvim-notify",
+    config = function()
+      local notify = require("notify")
+      -- this for transparency
+      notify.setup({ background_colour = "#000000" })
+      -- this overwrites the vim notify function
+      vim.notify = notify.notify
+    end
+  },
+
   -- Theme
   {
     "folke/tokyonight.nvim",
@@ -107,7 +119,7 @@ return {
     dependencies = {
       "nvim-tree/nvim-web-devicons",
     },
-    config = {
+    opts = {
       options = {
         icons_enabled = true,
         theme = catppuccin_theme,

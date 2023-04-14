@@ -1,4 +1,4 @@
-return { 
+return {
   "gbprod/yanky.nvim",
-  config = {}
+  opts = {}
 }

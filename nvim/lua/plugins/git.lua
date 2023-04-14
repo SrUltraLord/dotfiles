@@ -8,7 +8,7 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim"
     },
-    config = {
+    opts = {
       settings = {
         live_blame = {
           enabled = false
