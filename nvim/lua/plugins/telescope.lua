@@ -10,15 +10,21 @@ return {
     telescope.setup({
       defaults = {
         file_ignore_patterns = { "node_modules", ".git" }
+      },
+      mappings = {
+        n = {
+          ['<c-d>'] = require('telescope.actions').delete_buffer
+        }
       }
     })
 
     telescope.load_extension("yank_history")
   end,
   keys = {
-    { "<c-p>",      "<cmd>Telescope find_files hidden=true<cr>" },
+    { "<c-p>",      "<cmd>Telescope find_files hidden=false<cr>" },
+    { "<leader>p",  "<cmd>Telescope commands<cr>" },
     { "<c-f>",      "<cmd>Telescope live_grep<cr>" },
-    { "<leader>g",  "<cmd>Telescope buffers<cr>" },
+    { "<leader>b",  "<cmd>Telescope buffers initial_mode=normal<cr>", mode = { 'n', 'v' } },
 
     -- Plugins
     { "<c-y>",      "<cmd>Telescope yank_history<cr>" },
