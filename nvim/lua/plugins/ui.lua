@@ -1,32 +1,3 @@
--- Lualine
-local colors = {
-  blue   = '#80A0FF',
-  cyan   = '#79DAC8',
-  black  = '#080808',
-  white  = '#C6C6C6',
-  red    = '#FF5189',
-  violet = '#D183E8',
-  grey   = '#303030',
-  orange = '#F5A97F',
-}
-
-local catppuccin_theme = {
-  normal = {
-    a = { fg = colors.black, bg = colors.violet },
-    b = { fg = colors.white, bg = colors.grey },
-    c = { fg = colors.black, bg = colors.black },
-  },
-  insert = { a = { fg = colors.black, bg = colors.blue } },
-  command = { a = { fg = colors.black, bg = colors.orange } },
-  visual = { a = { fg = colors.black, bg = colors.cyan } },
-  replace = { a = { fg = colors.black, bg = colors.red } },
-  inactive = {
-    a = { fg = colors.white, bg = colors.black },
-    b = { fg = colors.white, bg = colors.black },
-    c = { fg = colors.black, bg = colors.black },
-  },
-}
-
 return {
   -- Init screen
   {
@@ -58,12 +29,15 @@ return {
 
   -- Theme
   {
-    "folke/tokyonight.nvim",
+    -- "folke/tokyonight.nvim",
+    "catppuccin/nvim",
+    name = 'catppuccin',
     lazy = false,
     priority = 1000,
     config = function()
       vim.opt.termguicolors = true
-      vim.cmd.colorscheme("tokyonight-moon")
+      -- vim.cmd.colorscheme("tokyonight-moon")
+      vim.cmd.colorscheme("catppuccin-mocha")
     end,
   },
 
@@ -90,76 +64,92 @@ return {
       "MunifTanjim/nui.nvim",
     },
     keys = {
-      { "<c-b>", "<cmd>Neotree toggle<cr>", desc = "Toggle Neotree" },
-      { "<c-e>", "<cmd>Neotree focus<cr>",  desc = "Focus Neotree" }
+      { "<c-b>",     "<cmd>Neotree toggle<cr>", desc = "Toggle Neotree" },
+      { "<leader>e", "<cmd>Neotree toggle<cr>", desc = "Toggle Neotree alt" },
+      { "<c-e>",     "<cmd>Neotree focus<cr>",  desc = "Focus Neotree" }
     }
   },
 
   -- Context Navigation
   {
-    "stevearc/aerial.nvim",
-    config = function()
-      require('aerial').setup({
-        backends = {
-          ['_']  = { "lsp", "treesitter" },
-          -- FIX: Aerial not working for these files.
-          astro  = { "lsp" },
-          svelte = { "lsp" },
-        }
-      })
-    end,
+    'simrat39/symbols-outline.nvim',
     keys = {
-      { "<leader>a", "<cmd>AerialToggle right<cr>", desc = "Toggle Aerial" },
+      { '<leader>a', '<cmd>SymbolsOutline<cr>' }
+    },
+    opts = {
+      highlight_hovered_item = true,
+      show_guides = true,
+      auto_preview = false,
+      position = 'right',
+      relative_width = true,
+      width = 25,
+      auto_close = false,
+      show_numbers = false,
+      show_relative_numbers = false,
+      show_symbol_details = true,
+      preview_bg_highlight = 'Pmenu',
+      autofold_depth = nil,
+      auto_unfold_hover = true,
+      fold_markers = { '', '' },
+      wrap = false,
+      keymaps = {
+        -- These keymaps can be a string or a table for multiple keys
+        close = { "<Esc>", "q" },
+        goto_location = "<Cr>",
+        focus_location = "o",
+        hover_symbol = "<C-space>",
+        toggle_preview = "K",
+        rename_symbol = "r",
+        code_actions = "a",
+        fold = "h",
+        unfold = "l",
+        fold_all = "W",
+        unfold_all = "E",
+        fold_reset = "R",
+      },
+      lsp_blacklist = {},
+      symbol_blacklist = {},
+      symbols = {
+        File = { icon = "", hl = "@text.uri" },
+        Module = { icon = "", hl = "@namespace" },
+        Namespace = { icon = "", hl = "@namespace" },
+        Package = { icon = "", hl = "@namespace" },
+        Class = { icon = "𝓒", hl = "@type" },
+        Method = { icon = "ƒ", hl = "@method" },
+        Property = { icon = "", hl = "@method" },
+        Field = { icon = "", hl = "@field" },
+        Constructor = { icon = "", hl = "@constructor" },
+        Enum = { icon = "ℰ", hl = "@type" },
+        Interface = { icon = "ﰮ", hl = "@type" },
+        Function = { icon = "", hl = "@function" },
+        Variable = { icon = "", hl = "@constant" },
+        Constant = { icon = "", hl = "@constant" },
+        String = { icon = "𝓐", hl = "@string" },
+        Number = { icon = "#", hl = "@number" },
+        Boolean = { icon = "⊨", hl = "@boolean" },
+        Array = { icon = "", hl = "@constant" },
+        Object = { icon = "⦿", hl = "@type" },
+        Key = { icon = "🔐", hl = "@type" },
+        Null = { icon = "NULL", hl = "@type" },
+        EnumMember = { icon = "", hl = "@field" },
+        Struct = { icon = "𝓢", hl = "@type" },
+        Event = { icon = "🗲", hl = "@type" },
+        Operator = { icon = "+", hl = "@operator" },
+        TypeParameter = { icon = "𝙏", hl = "@parameter" },
+        Component = { icon = "", hl = "@function" },
+        Fragment = { icon = "", hl = "@constant" },
+      },
     }
   },
 
   -- Status line
   {
-    "nvim-lualine/lualine.nvim",
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-    },
-    opts = {
-      options = {
-        icons_enabled = true,
-        theme = catppuccin_theme,
-        component_separators = { left = '', right = '' },
-        section_separators = { left = '', right = '' },
-        disabled_filetypes = {
-          statusline = {},
-          winbar = {},
-          ['neo-tree'] = {}
-        },
-        ignore_focus = {},
-        always_divide_middle = true,
-        globalstatus = false,
-        refresh = {
-          statusline = 1000,
-          tabline = 1000,
-          winbar = 1000,
-        }
-      },
-      sections = {
-        lualine_a = { 'mode' },
-        lualine_b = { 'branch', 'diff', 'diagnostics' },
-        lualine_c = { 'filename' },
-        lualine_x = { 'encoding', 'fileformat', 'filetype' },
-        lualine_y = { 'progress' },
-        lualine_z = { 'location' }
-      },
-      inactive_sections = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = { 'filename' },
-        lualine_x = { 'location' },
-        lualine_y = {},
-        lualine_z = {}
-      },
-      tabline = {},
-      winbar = {},
-      inactive_winbar = {},
-      extensions = {}
-    }
+    "feline-nvim/feline.nvim",
+    config = function()
+      require("feline").setup {
+        components = require("catppuccin.groups.integrations.feline").get(),
+      }
+    end,
   },
 
   -- Guide lines
