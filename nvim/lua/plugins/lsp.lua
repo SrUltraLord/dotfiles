@@ -1,3 +1,15 @@
+local signs = {
+  Error = " ",
+  Warn = " ",
+  Hint = " ",
+  Information = " "
+}
+
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
 return {
   {
     "VonHeikemen/lsp-zero.nvim",
@@ -10,8 +22,19 @@ return {
         build = function()
           pcall(vim.cmd, 'MasonUpdate')
         end,
+        opts = {}
       },
-      { "williamboman/mason-lspconfig.nvim" },
+      {
+        "williamboman/mason-lspconfig.nvim",
+        opts = {},
+        config = function()
+          local get_servers = require('mason-lspconfig').get_installed_servers
+
+          for _, server_name in ipairs(get_servers()) do
+            require('lspconfig')[server_name].setup({})
+          end
+        end
+      },
 
       -- Autocompletion
       { "hrsh7th/nvim-cmp" },
@@ -37,22 +60,15 @@ return {
         cmp_capabilities = true,
         call_servers = 'local',
         set_lsp_keymaps = { preserve_mappings = true, omit = {} },
-        sign_icons = {
-          error = "",
-          warn = "",
-          hint = "",
-          info = "",
-        }
       })
 
-      -- Virtal Text Config
+      -- Virtual Text Config
       vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
         vim.lsp.diagnostic.on_publish_diagnostics, {
           virtual_text = {
             prefix = "",
             spacing = 2,
           },
-          signs = true,
           underline = true,
         }
       )
@@ -61,14 +77,21 @@ return {
     end
   },
 
-  -- Autocompletion
-  { "hrsh7th/cmp-nvim-lsp",         lazy = false },
-  { "hrsh7th/cmp-nvim-lua",         lazy = false },
-  { "hrsh7th/cmp-buffer",           lazy = false },
-  { "hrsh7th/cmp-path",             lazy = false },
-  { "saadparwaiz1/cmp_luasnip",     lazy = false },
+  -- Lsp Config
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      local lsp = require('lsp-zero').preset({})
+      local lsp_config = require('lspconfig')
+
+      lsp_config.lua_ls.setup(lsp.nvim_lua_ls())
+    end
+  },
 
   -- Snippets
-  { "L3MON4D3/LuaSnip",             lazy = false },
-  { "rafamadriz/friendly-snippets", lazy = false },
+  { "L3MON4D3/LuaSnip" },
+  { "rafamadriz/friendly-snippets" },
+
+  -- VSCode Icons
+  { "onsails/lspkind.nvim" }
 }
