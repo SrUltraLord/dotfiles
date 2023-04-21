@@ -1,7 +1,8 @@
-return { 
+return {
   "voldikss/vim-floaterm",
-  lazy = false, 
+  lazy = false,
   keys = {
-    { "<c-g>", "<cmd>FloatermNew lazygit<cr>" }
+    { "<c-g>",     "<cmd>FloatermNew lazygit<cr>" },
+    { "<leader>t", "<cmd>FloatermNew lazygit<cr>" }
   }
 }

@@ -5,7 +5,8 @@ g.neoformat_try_node_exe = 1
 return {
   "sbdchd/neoformat",
   keys = {
-    { "<leader>ft", "<cmd>Neoformat<cr>" }
+    { "<leader>ft",  "<cmd>Neoformat<cr>" },
+    { "<leader>pft", "<cmd>!pnpm format<cr>" }
   },
   config = function()
     vim.cmd [[
