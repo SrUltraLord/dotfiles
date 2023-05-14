@@ -19,7 +19,7 @@ function send_notification() {
     # https://en.wikipedia.org/wiki/Box-drawing_character
     bar=$(seq -s "─" $(($volume * 2 / 5)) | sed 's/[0-9]//g')
     # Send the notification
-    dunstify -i audio-volume-muted-blocking -t 1000 -r 2593 -u normal "$1 $volume   $bar"
+    dunstify -i audio-volume-muted-blocking -t 1000 -r 2593 -u normal "$1 $volume $bar"
 }
 
 case $1 in
@@ -28,12 +28,12 @@ case $1 in
 	amixer -D pulse set Master on > /dev/null
 	# Up the volume (+ 5%)
 	amixer -D pulse sset Master 5%+ > /dev/null
-	send_notification "ﱛ" 
+  send_notification "󰝝"
 	;;
     down)
 	amixer -D pulse set Master on > /dev/null
 	amixer -D pulse sset Master 5%- > /dev/null
-	send_notification "ﱜ"
+  send_notification "󰝞"
 	;;
     mute)
     	# Toggle mute
@@ -41,7 +41,7 @@ case $1 in
 	if is_mute ; then
 	    dunstify -i audio-volume-muted -t 8 -r 2593 -u normal "Mute"
 	else
-	    send_notification "ﱝ"
+    send_notification "󰝟"
 	fi
 	;;
 esac
