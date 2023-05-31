@@ -7,5 +7,5 @@ return {
 
     persistence.setup()
     persistence.load()
-  end, 
+  end,
 }
