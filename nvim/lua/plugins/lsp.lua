@@ -57,7 +57,7 @@ return {
         suggest_lsp_servers = true,
         setup_servers_on_start = true,
         configure_diagnostics = true,
-        cmp_capabilities = true,
+        -- cmp_capabilities = true,
         call_servers = 'local',
         set_lsp_keymaps = { preserve_mappings = true, omit = {} },
       })
@@ -66,7 +66,7 @@ return {
       vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
         vim.lsp.diagnostic.on_publish_diagnostics, {
           virtual_text = {
-            prefix = "",
+            prefix = "󱓻",
             spacing = 2,
           },
           underline = true,
@@ -74,17 +74,6 @@ return {
       )
 
       lspzero.setup()
-    end
-  },
-
-  -- Lsp Config
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      local lsp = require('lsp-zero').preset({})
-      local lsp_config = require('lspconfig')
-
-      lsp_config.lua_ls.setup(lsp.nvim_lua_ls())
     end
   },
 
