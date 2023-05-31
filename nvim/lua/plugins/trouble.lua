@@ -1,6 +1,6 @@
 return {
   "folke/trouble.nvim",
-  dependencies = { 
+  dependencies = {
     "nvim-tree/nvim-web-devicons"
   },
   keys = {
@@ -43,11 +43,10 @@ return {
       auto_fold = false,
       auto_jump = { "lsp_definitions" },
       signs = {
-        error = "",
-        warning = "",
-        hint = "",
-        information = "",
-        other = "﫠"
+        error = " ",
+        warning = "",
+        information = " ",
+        other = "",
       },
       use_diagnostic_signs = false
     })

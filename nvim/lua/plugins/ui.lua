@@ -15,18 +15,6 @@ return {
   -- Better popup menus
   { 'stevearc/dressing.nvim' },
 
-  -- Notifications
-  {
-    "rcarriga/nvim-notify",
-    config = function()
-      local notify = require("notify")
-      -- this for transparency
-      notify.setup({ background_colour = "#000000" })
-      -- this overwrites the vim notify function
-      vim.notify = notify.notify
-    end
-  },
-
   -- Theme
   {
     -- "folke/tokyonight.nvim",
@@ -36,7 +24,7 @@ return {
     priority = 1000,
     config = function()
       vim.opt.termguicolors = true
-      -- vim.cmd.colorscheme("tokyonight-moon")
+      -- vim.cmd.colorscheme("tokyonight-storm")
       vim.cmd.colorscheme("catppuccin-mocha")
     end,
   },
@@ -67,6 +55,42 @@ return {
       { "<c-b>",     "<cmd>Neotree toggle<cr>", desc = "Toggle Neotree" },
       { "<leader>e", "<cmd>Neotree toggle<cr>", desc = "Toggle Neotree alt" },
       { "<c-e>",     "<cmd>Neotree focus<cr>",  desc = "Focus Neotree" }
+    },
+    opts = {
+      default_component_configs = {
+        icon = {
+          folder_closed = "",
+          folder_open = "",
+          folder_empty = "",
+
+          default = "󰈙",
+          highlight = "NeoTreeFileIcon"
+        },
+        modified = {
+          symbol = "󰝥",
+          highlight = "NeoTreeModified",
+        },
+        name = {
+          trailing_slash = false,
+          use_git_status_colors = false,
+          highlight = "NeoTreeFileName",
+        },
+        git_status = {
+          symbols = {
+            -- Change type
+            added     = "A",
+            modified  = "M",
+            deleted   = "D",
+            renamed   = "R",
+            -- Status type
+            untracked = "U",
+            ignored   = "",
+            unstaged  = "󰄱",
+            staged    = "󰱒",
+            conflict  = "󰄷",
+          }
+        },
+      }
     }
   },
 
@@ -110,33 +134,33 @@ return {
       lsp_blacklist = {},
       symbol_blacklist = {},
       symbols = {
-        File = { icon = "", hl = "@text.uri" },
-        Module = { icon = "", hl = "@namespace" },
-        Namespace = { icon = "", hl = "@namespace" },
-        Package = { icon = "", hl = "@namespace" },
-        Class = { icon = "𝓒", hl = "@type" },
-        Method = { icon = "ƒ", hl = "@method" },
-        Property = { icon = "", hl = "@method" },
-        Field = { icon = "", hl = "@field" },
-        Constructor = { icon = "", hl = "@constructor" },
-        Enum = { icon = "ℰ", hl = "@type" },
-        Interface = { icon = "ﰮ", hl = "@type" },
-        Function = { icon = "", hl = "@function" },
-        Variable = { icon = "", hl = "@constant" },
-        Constant = { icon = "", hl = "@constant" },
-        String = { icon = "𝓐", hl = "@string" },
-        Number = { icon = "#", hl = "@number" },
-        Boolean = { icon = "⊨", hl = "@boolean" },
-        Array = { icon = "", hl = "@constant" },
-        Object = { icon = "⦿", hl = "@type" },
-        Key = { icon = "🔐", hl = "@type" },
-        Null = { icon = "NULL", hl = "@type" },
+        File = { icon = "", hl = "@text.uri" },
+        Module = { icon = "", hl = "@namespace" },
+        Namespace = { icon = "", hl = "@namespace" },
+        Package = { icon = "", hl = "@namespace" },
+        Class = { icon = "", hl = "@type" },
+        Method = { icon = "", hl = "@method" },
+        Property = { icon = "", hl = "@method" },
+        Field = { icon = "", hl = "@field" },
+        Constructor = { icon = "", hl = "@constructor" },
+        Enum = { icon = "", hl = "@type" },
+        Interface = { icon = "", hl = "@type" },
+        Function = { icon = "", hl = "@function" },
+        Variable = { icon = "", hl = "@constant" },
+        Constant = { icon = "", hl = "@constant" },
+        String = { icon = "", hl = "@string" },
+        Number = { icon = "󰉻", hl = "@number" },
+        Boolean = { icon = "", hl = "@boolean" },
+        Array = { icon = "", hl = "@constant" },
+        Object = { icon = "", hl = "@type" },
+        Key = { icon = "", hl = "@type" },
+        Null = { icon = "󰟢", hl = "@type" },
         EnumMember = { icon = "", hl = "@field" },
-        Struct = { icon = "𝓢", hl = "@type" },
+        Struct = { icon = "", hl = "@type" },
         Event = { icon = "🗲", hl = "@type" },
         Operator = { icon = "+", hl = "@operator" },
         TypeParameter = { icon = "𝙏", hl = "@parameter" },
-        Component = { icon = "", hl = "@function" },
+        Component = { icon = "", hl = "@function" },
         Fragment = { icon = "", hl = "@constant" },
       },
     }
