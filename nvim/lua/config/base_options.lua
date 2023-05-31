@@ -6,7 +6,6 @@ g.mapleader = " "
 
 -- Listchars
 vim.opt.list = true
-vim.opt.listchars:append "space:⋅"
 
 -- Decrease update time
 o.timeoutlen = 500
@@ -61,3 +60,7 @@ opt.signcolumn = 'yes'
 
 -- FILE FORMATTING
 vim.cmd [[autocmd BufWritePre *.lua lua vim.lsp.buf.format()]]
+
+-- Fix colors for tmux
+vim.g["termguicolors"] = true -- Activates true colors support
+vim.g["default_terminal"] = "xterm-256color"
