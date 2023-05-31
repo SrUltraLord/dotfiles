@@ -8,9 +8,10 @@ return {
     { "<leader>ft",  "<cmd>Neoformat<cr>" },
     { "<leader>pft", "<cmd>!pnpm format<cr>" }
   },
+  lazy = false,
   config = function()
     vim.cmd [[
-      autocmd BufWritePre *.astro,*.md,*.vue,*.js,*.ts,*.json Neoformat
+      autocmd BufWritePre *.astro,*.md,*.vue,*.js,*.ts,*.tsx,*.json Neoformat
     ]]
   end
 }
