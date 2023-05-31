@@ -11,7 +11,8 @@ map("n", "<c-\\>", "<CMD>vs<CR>")      -- Splits Vertical
 map("n", "<leader>s", "<CMD>Sort<CR>") -- Sorts
 
 -- Buffers
-map("n", "<leader>c", "<CMD>bd<CR>") -- Close current buffer
+map("n", "<leader>cc", "<CMD>bd<CR>")  -- Close current buffer
+map("n", "<leader>ca", "<CMD>%bd<CR>") -- Close all buffers
 
 -- Splits Mgmt
 map("n", "<c-h>", "<c-w>h");
