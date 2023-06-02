@@ -11,7 +11,7 @@ shell:
   args:
     - -l
     - -c
-    - "tmux attach || tmux"
+    - "tmux"
 
 #window:
   # Window dimensions (changes require restart)
@@ -114,23 +114,25 @@ shell:
 # Font configuration
 font:
   normal:
-    family: Iosevka Nerd Font
+    # family: Iosevka Nerd Font
+    family: FiraCode Nerd Font
     style: Regular
 
   bold:
-    family: Iosevka Nerd Font
+    family: FiraCode Nerd Font
     style: Bold
 
   italic:
-    family: Iosevka Nerd Font
+    family: FiraCode Nerd Font
     style: Italic
 
   bold_italic:
-    family: Iosevka Nerd Font
+    # family: Iosevka Nerd Font
+    family: FiraCode Nerd Font
     style: Bold Italic
 
   # Point size
-  size: 16.0
+  size: 14.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
