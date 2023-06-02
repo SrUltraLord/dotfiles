@@ -1,12 +1,22 @@
 /BraveSoftware
 /Code
+/Code - OSS
 /GIMP
+/JetBrains
 /Kingsoft
+/Microsoft
+/Microsoft\\Teams\\-\\Preview
 /Postman
+/VSCodium
+/VirtualBox
 /WebCord
 /astro
+/atril
 /autostart
+/calibre
+/cava
 /cef_user_data
+/composer
 /dconf
 /discord
 /figma-linux
@@ -17,10 +27,15 @@
 /lazygit
 /legendary
 /libvirt
+/lvim
+/lvim.old
+/menus
+/microsoft-edge
 /mimeapps.list
 /mpv
 /nemo
 /neofetch
+/nextjs-nodejs
 /nvim.bak
 /nwg-look
 /obs-studio
@@ -28,6 +43,7 @@
 /pavucontrol.ini
 /pulse
 /qt5ct
+/remmina
 /spotify
 /spotify-tui
 /spotifyd
@@ -38,3 +54,4 @@
 /vlc
 /xsettingsd
 /yay
+QtProject.conf
