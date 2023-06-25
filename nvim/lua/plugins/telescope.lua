@@ -21,9 +21,9 @@ return {
     telescope.load_extension("yank_history")
   end,
   keys = {
-    { "<c-p>",      "<cmd>Telescope find_files hidden=false<cr>" },
+    { "<leader>ff", "<cmd>Telescope find_files hidden=true<cr>" },
     { "<leader>pp", "<cmd>Telescope commands<cr>" },
-    { "<c-f>",      "<cmd>Telescope live_grep<cr>" },
+    { "<leader>fp", "<cmd>Telescope live_grep<cr>" },
     { "<leader>b",  "<cmd>Telescope buffers initial_mode=normal<cr>", mode = { 'n', 'v' } },
 
     -- Plugins
