@@ -1,5 +1,5 @@
 return {
-  -- Init screen
+  -- Init screenui
   {
     "glepnir/dashboard-nvim",
     event = "VimEnter",
@@ -23,8 +23,53 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
+      require("catppuccin").setup({
+        flavour = "mocha",
+        background = { -- :h background
+          light = "latte",
+          dark = "mocha",
+        },
+        show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
+        term_colors = false,        -- sets terminal colors (e.g. `g:terminal_color_0`)
+        dim_inactive = {
+          enabled = false,          -- dims the background color of inactive window
+          shade = "dark",
+          percentage = 0.15,        -- percentage of the shade to apply to the inactive window
+        },
+        styles = {                  -- Handles the styles of general hi groups (see `:h highlight-args`):
+          comments = { "italic" },  -- Change the style of comments
+          conditionals = { "italic" },
+          loops = {},
+          functions = { "italic" },
+          keywords = { "italic" },
+          strings = {},
+          variables = {},
+          numbers = {},
+          booleans = {},
+          properties = {},
+          types = {},
+          operators = {},
+        },
+        color_overrides = {},
+        custom_highlights = {},
+        integrations = {
+          gitsigns = true,
+          cmp = true,
+          lsp_trouble = true,
+          nvimtree = true,
+          treesitter = true,
+          telescope = true,
+          neotree = true,
+          leap = true,
+          symbols_outline = true,
+          indent_blankline = {
+            enabled = true,
+            colored_indent_levels = true,
+          },
+        },
+      })
+
       vim.opt.termguicolors = true
-      -- vim.cmd.colorscheme("tokyonight-storm")
       vim.cmd.colorscheme("catppuccin-mocha")
     end,
   },
@@ -52,15 +97,31 @@ return {
       "MunifTanjim/nui.nvim",
     },
     keys = {
-      { "<c-b>",     "<cmd>Neotree toggle<cr>", desc = "Toggle Neotree" },
-      { "<leader>e", "<cmd>Neotree toggle<cr>", desc = "Toggle Neotree alt" },
-      { "<c-e>",     "<cmd>Neotree focus<cr>",  desc = "Focus Neotree" }
+      { "<leader>e",  "<cmd>Neotree toggle<cr>", desc = "Toggle Neotree alt" },
+      { "<leader>fe", "<cmd>Neotree focus<cr>",  desc = "Focus Neotree" }
     },
     opts = {
       default_component_configs = {
+        container = {
+          enable_character_fade = true
+        },
+        indent = {
+          indent_size = 2,
+          padding = 1,
+          -- indent guides
+          with_markers = true,
+          indent_marker = "│",
+          last_indent_marker = "└",
+          highlight = "NeoTreeIndentMarker",
+          -- expander config, needed for nesting files
+          with_expanders = nil, -- if nil and file nesting is enabled, will enable expanders
+          expander_collapsed = "",
+          expander_expanded = "",
+          expander_highlight = "NeoTreeExpander",
+        },
         icon = {
           folder_closed = "",
-          folder_open = "",
+          folder_open = "",
           folder_empty = "",
 
           default = "󰈙",
@@ -72,7 +133,7 @@ return {
         },
         name = {
           trailing_slash = false,
-          use_git_status_colors = false,
+          use_git_status_colors = true,
           highlight = "NeoTreeFileName",
         },
         git_status = {
@@ -90,6 +151,11 @@ return {
             conflict  = "󰄷",
           }
         },
+        filesystem = {
+          filtered_items = {
+            hide_dotfiles = false
+          }
+        }
       }
     }
   },
