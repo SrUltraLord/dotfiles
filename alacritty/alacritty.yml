@@ -115,20 +115,19 @@ shell:
 font:
   normal:
     # family: Iosevka Nerd Font
-    family: FiraCode Nerd Font
+    family: CaskaydiaCove NFM
     style: Regular
 
   bold:
-    family: FiraCode Nerd Font
+    family: CaskaydiaCove NFM
     style: Bold
 
   italic:
-    family: FiraCode Nerd Font
+    family: CaskaydiaCove NFM
     style: Italic
 
   bold_italic:
-    # family: Iosevka Nerd Font
-    family: FiraCode Nerd Font
+    family: CaskaydiaCove NFM
     style: Bold Italic
 
   # Point size
