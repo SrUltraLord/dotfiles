@@ -1,27 +1,26 @@
 {
   "layer": "top",
   "position": "top",
-  "margin-top": 6,
-  "margin-right": 6,
+  "height": 28,
+  "padding": 2,
+  "margin-top": 0,
+  "margin-right": 0,
   "margin-bottom": 0,
-  "margin-left": 6,
+  "margin-left": 0,
   "modules-left": [
-    "wlr/workspaces",
+    // "wlr/workspaces",
     "cpu",
-    "memory",
+    "memory"
   ],
   "modules-center": [
-    "custom/focused-app"
+    "hyprland/window"
   ],
   "modules-right": [
+    "tray",
     "network",
     "pulseaudio",
-    "tray",
     "clock"
   ],
-  "custom/logo": {
-    "format": ""
-  },
   "cpu": {
     "format": "<span size='large'></span>  {usage}%",
     "tooltip": false
@@ -29,16 +28,8 @@
   "memory": {
     "format": "<span size='large'></span>  {}%"
   },
-  "temperature": {
-    "critical-threshold": 80,
-    "format": "{icon} {temperatureC}°C",
-    "format-icons": [
-      "",
-      "",
-      ""
-    ]
-  },
   "wlr/workspaces": {
+    "height": 2,
     "format": "{icon}",
     "on-click": "activate",
     "format-icons": {
@@ -47,7 +38,7 @@
     }
   },
   "clock": {
-    "format": "<span size='large'>󰸗</span>  {:%a %d %b <span size='large'></span>  %H:%M}",
+    "format": "<span size='large'>󰸗</span>  {:%a %d %b <span size='large'></span>  %H:%M:%S}",
     "interval": 1
   },
   "network": {
@@ -64,23 +55,16 @@
     "format": "<span size='large'>{icon}</span>  {volume}%",
     "format-bluetooth": "{volume}% <span size='large'>{icon}</span>  {format_source}",
     "format-bluetooth-muted": "<span size='large'>{icon}</span>  {format_source}",
-    "format-muted": "<span size='large'></span>",
+    "format-muted": "<span size='large'> </span>",
     "format-source": "{volume}% <span size='medium'></span>",
     "format-source-muted": "<span size='medium'></span>",
     "format-icons": {
       "headphones": "",
-      "default": [
-        ""
-      ]
+      "default": [""]
     },
     "on-click": "pavucontrol"
   },
   "tray": {
-    "spacing": 10
-  },
-  "custom/focused-app": {
-    "format": "{}",
-    "interval": 1,
-    "exec": "hyprctl activewindow -j | jq -r '.. | .class? | select(.)' | tail -n1"
+    "spacing": 2
   }
 }

@@ -2,23 +2,23 @@
 
 * {
   font-family: Iosevka Nerd Font, Material Symbols Rounded;
-  font-size: 15px;
-  /* font-weight: bold; */
+  font-size: 14px;
+  font-weight: bold;
 }
 
 window#waybar {
-  background-color: @surface0;
-  margin: 6px 6px 0 6px;
-  border-radius: 8px;
+  background-color: @mantle;
+  border-radius: 0;
 }
 
 #workspaces {
+  padding: 0;
   margin-right: 8px;
 }
 
 #workspaces button {
+  border-radius: 0;
   color: @pink;
-  box-shadow: inset 0 -3px transparent;
   transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
 }
 
@@ -32,67 +32,38 @@ window#waybar {
 }
 
 #cpu {
-  color: @green;
-}
-
-#temperature {
-  color: @lavender;
+  background-color: @green;
 }
 
 #memory {
-  color: @blue;
-}
-
-#cpu,
-#memory {
-  padding: 0 10px;
-}
-
-#tray,
-#network,
-#backlight,
-#clock,
-#battery,
-#pulseaudio,
-#custom-lock,
-#custom-power {
-  padding: 0 10px;
-}
-
-#custom-logo {
-  padding: 0 14px 0 10px;
-  background-color: @lavender;
-}
-
-/* special borders */
-#network {
-  border-radius: 8px 0 0 8px;
+  background-color: @blue;
 }
 
 #clock {
-  color: @lavender;
+  background-color: @lavender;
 }
 
 #network {
-  color: @flamingo;
-}
-
-#backlight {
-  color: @yellow;
+  background-color: @flamingo;
 }
 
 #pulseaudio {
-  color: @pink;
+  background-color: @pink;
 }
 
 #pulseaudio.muted {
-  color: @red;
+  background-color: @red;
 }
 
+#cpu,
+#memory,
+#tray,
+#network,
+#clock,
+#pulseaudio,
 #custom-power {
-  border-radius: 1rem;
-  color: @red;
-  margin-bottom: 1rem;
+  padding: 0 10px;
+  color: @mantle;
 }
 
 tooltip {
