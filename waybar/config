@@ -1,14 +1,14 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 28,
+  "height": 26,
   "padding": 2,
   "margin-top": 0,
   "margin-right": 0,
   "margin-bottom": 0,
   "margin-left": 0,
   "modules-left": [
-    // "wlr/workspaces",
+    "wlr/workspaces",
     "cpu",
     "memory"
   ],
@@ -49,7 +49,7 @@
     "format-disconnected": "󰈂",
     "interval": 1,
     "tooltip": true,
-    "tooltip-format": "{ipaddr}:  {bandwidthDownBits}  {bandwidthUpBits}"
+    "tooltip-format": "[{ipaddr}]  {bandwidthDownBits}  {bandwidthUpBits}"
   },
   "pulseaudio": {
     "format": "<span size='large'>{icon}</span>  {volume}%",

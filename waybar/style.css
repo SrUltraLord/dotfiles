@@ -13,18 +13,19 @@ window#waybar {
 
 #workspaces {
   padding: 0;
-  margin-right: 8px;
 }
 
 #workspaces button {
+  padding: 0px 4px;
   border-radius: 0;
-  color: @pink;
+  color: @mantle;
+  background-color: @lavender;
   transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
 }
 
 #workspaces button.active {
-  color: @surface0;
-  background-color: @mauve;
+  color: @mantle;
+  background-color: @peach;
 }
 
 #workspaces button:hover {
