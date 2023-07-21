@@ -65,6 +65,6 @@
     "on-click": "pavucontrol"
   },
   "tray": {
-    "spacing": 2
+    "spacing": 6
   }
 }

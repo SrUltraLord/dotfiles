@@ -9,11 +9,11 @@ map("n", "<leader>r", "<CMD>source $MYVIMRC<CR>")
 map("n", "<c-s>", "<CMD>w<CR>")              -- Saves buffer
 map("n", "<c-\\>", "<CMD>vs<CR>")            -- Splits Vertical
 map("n", "<leader>s", "<CMD>Sort<CR>")       -- Sorts
-map("n", "<a-j>", "<Esc><CMD>m .+1<CR>==") -- Move line
-map("n", "<a-k>", "<Esc><CMD>m .-2<CR>==") -- Move line
+map("n", "<c-a-j>", "<Esc><CMD>m .+1<CR>==") -- Move line
+map("n", "<c-a-k>", "<Esc><CMD>m .-2<CR>==") -- Move line
 
-map("v", "<a-j>", "<CMD>m '>+1<CR>==") -- Move line
-map("v", "<a-k>", "<CMD>m '<-2<CR>==") -- Move line
+map("v", "<c-a-j>", "<CMD>m '>+1<CR>==")     -- Move line
+map("v", "<c-a-k>", "<CMD>m '<-2<CR>==")     -- Move line
 
 -- Buffers
 map("n", "<leader>cc", "<CMD>bd<CR>")  -- Close current buffer
